@@ -1,0 +1,6 @@
+antivirus.py - main 파일
+virus.db - 바이러스 패턴 파일
+kmake.py - virus.db파일 암호화 기능
+scanmod.py - 악성코드 진단 함수를 별도의 모듈로 추출한 것
+scan_str.py - 특정 위치 검색법을 이용한 악성코드 검사 방법
+curemod.py - 악성코드 치료 모듈
