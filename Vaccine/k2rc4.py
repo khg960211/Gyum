@@ -26,7 +26,7 @@ class RC4:
     #------------------------------------------------
     def set_key(self, password):
         for i in range(len(password)):
-            self.__key.append(ord(password[i]))
+            self.__Key.append(ord(password[i]))
         self.__init_rc4()
 
     #------------------------------------------------
@@ -35,14 +35,14 @@ class RC4:
     # 인자값 : data - 암/복호화할 데이터
     # 리턴값 : 암/복호화 결과 데이터
     #------------------------------------------------
-    def crypt(Self, data):
+    def crypt(self, data):
         t_str = []
 
         for i in range(len(data)):
             t_str.append(ord(data[i]))
 
         for i in range(len(t_str)):
-            t_str[i] = ^= self.__gen_k()
+            t_str[i] ^= self.__gen_k()
 
         ret_s = ''
         for i in range(len(t_str)):
@@ -79,7 +79,7 @@ class RC4:
     # __gen_k(Self)
     # 암/복호화에 필요한 스트림을 생성한다.
     #--------------------------------------------------
-    def __gen_k(Self):
+    def __gen_k(self):
         i = self.__K_i
         j = self.__K_j
 
