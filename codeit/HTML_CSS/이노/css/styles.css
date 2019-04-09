@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#div1 {
+  width: 100%;
+  height: 60px;
+  background-color: #4a4a4a;
+  font-size: 20px;
+  color: white;
+  line-height: 60px;
+  padding-left: 50px;
+}
+
+#div2 {
+  width: 100%;
+  height: 350px;
+  background-image: url(../images/main_img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+#div3 {
+  height: 320px;
+  background-color: white;
+  line-height: 320px;
+}
+#div3 .info {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+  margin: 0 30px;
+}
+.info h2 {
+  font-size: 16px;
+  color: #4a4a4a;
+  margin: 0;
+}
+.info h1 {
+  font-size: 20px;
+  color: #1b1b1b;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.info p {
+  font-size: 16px;
+  color: #7a7a7a;
+  margin: 0;
+}
+
+#div4 {
+  width: 100%;
+  height: 385px;
+  background-image: url(../images/img1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+#div5 {
+  width: 100%;
+  height: 200px;
+  background-image: url(../images/img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  line-height: 200px;
+  text-align: center;
+}
+.morebtn {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: 4px solid white;
+  padding: 9px 40px;
+  display: inline-block;
+  line-height: normal;
+}
+
+#div6 {
+  width: 100%;
+  height: 200px;
+  background-image: url(../images/img3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+}
+
+@media (min-width: 768px) {
+  div {
+    float: left;
+  }
+
+  #div2 {
+    width: 100%;
+    height: 562px;
+  }
+
+  #div3 {
+    height: 282px;
+    line-height: 282px;
+  }
+  #div3 .info {
+    float: none;
+    margin: 0 65px;
+  }
+
+  #div4 {
+    width: 50%;
+    height: 360px;
+  }
+
+  #div5 {
+    width: 50%;
+    height: 180px;
+    line-height: 180px;
+  }
+
+  #div6 {
+    width: 50%;
+    height: 180px;
+  }
+}
+
+@media (min-width: 992px) {
+
+  #div2 {
+    width: 50%;
+    height: 700px;
+  }
+
+  #div3 {
+    width: 50%;
+    height: 350px;
+    line-height: 350px;
+  }
+
+  #div4 {
+    width: 25%;
+    height: 350px;
+  }
+
+  #div5 {
+    width: 25%;
+    height: 175px;
+    line-height: 175px;
+  }
+
+  #div6 {
+    width: 25%;
+    height: 175px;
+  }
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>positioning</title>
+  <meta charset="utf-8">
+  <style>
+    div {
+      margin: 30px;
+      padding: 30px;
+    }
+
+    .red {
+      border: 1px solid red;
+    }
+
+    .green {
+      border: 1px solid green;
+    }
+
+    .blue {
+      border: 1px solid blue;
+    }
+
+    b {
+      font-size: 28px;
+      background-color: orange;
+      position: relative;
+      top: 30px; /* 원래 위치 기준으로 움직여서 위에 30px의 간격이 있게 만든다. */
+      left: 50px;
+    }
+
+    p {
+      font-size: 28px;
+      background-color: orange;
+      position: fixed; /* 네비게이션 바 에 많이 사용하는 기능, 브라우저에 고정 됨*/
+      bottom: 30px;
+      left: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="red">
+    testesttestesttestesttestesttestesttestest<b>test</b>esttestesttestesttestesttestest
+    testesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestest
+    testesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestest
+  </div>
+
+  <div class="green">
+    testesttestesttestesttestesttestesttestest<p>test</p>esttestesttestesttestesttestest
+    testesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestest
+    testesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestest
+  </div>
+
+  <div class="blue">
+    testesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestest
+    testesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestest
+    testesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestesttestest
+  </div>
+</body>
+</html>

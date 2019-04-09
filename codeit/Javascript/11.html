@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>for of, for in 반복문</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var brands = ['NIKE', 'ADIDAS', 'REEBOK'];
+
+      // for of 반복분
+      // 배열의 value에 접근
+      for (value of brands) {
+        console.log(value);
+      }
+
+      console.log('---');
+
+      // for in 반복문
+      // 배열의 index에 접근
+      for (var k in brands) {
+        console.log(k);
+        console.log(brands[k])
+      }
+    </script>
+  </body>
+</html>

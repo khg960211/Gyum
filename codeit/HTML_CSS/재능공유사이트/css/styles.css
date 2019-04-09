@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+/* 캐러셀 */
+.helper {
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.background {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 400px;
+  text-align: center;
+}
+.guitar {
+  background-image: url(../images/guitar.jpg);
+  background-position: left center;
+}
+.makeup {
+  background-image: url(../images/makeup.jpg);
+  background-position: center top;
+}
+.cooking {
+  background-image: url(../images/cooking.jpg);
+  background-position: center center;
+}
+.caption {
+  display: inline-block;
+  vertical-align: middle;
+  color: white;
+}
+.caption h2 {
+  font-size: 32px;
+  margin: 0;
+}
+.caption p {
+  font-size: 22px;
+  margin-top: 18px;
+  margin-bottom: 48px;
+}
+.caption a {
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  background-color: #5900E7;
+  border: 1px solid #5900E7;
+  padding: 10px 30px;
+}
+/* 캐러셀 */
+
+/* 경보 */
+.alert {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 16px;
+}
+/* 경보 */
+
+/* 그리드 */
+.con {
+  width: 80%;
+  margin-bottom: 70px;
+}
+.c {
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+.classlink {
+  text-decoration: none;
+  color: #4a4a4a;
+}
+.box {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+}
+.infobox {
+  padding: 10px;
+}
+.thumbnail {
+  width: 100%;
+}
+.thumbnailtext {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.userimg {
+  width: 20px;
+  vertical-align: middle;
+}
+.userinfo {
+  width: 100%;
+  display: inline-block;
+}
+.username {
+  font-size: 13px;
+}
+.box h2 {
+  font-size: 18px;
+  margin: 0;
+}

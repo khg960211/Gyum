@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>배열 만들기1</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function range(start, end, step) {
+    var arr = [];
+
+    // 코드를 작성해주세요.
+    if (start < end) {
+        for (start; start < end; start += step) {
+         arr.push(start);
+        }
+    }
+    else {
+        for (start; start > end; start += step) {
+         arr.push(start);
+    }
+    }
+    return arr;
+}
+
+// 테스트 코드
+console.log(range(1, 10, 1));
+console.log(range(-1, 10, 3));
+console.log(range(10, -10, -4));
+    </script>
+  </body>
+</html>

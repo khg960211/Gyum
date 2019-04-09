@@ -8,7 +8,9 @@ import re
 
 
 def crawl_naver_webtoon(url):
-    html = requests.get(url).text
+    test = url + "&no=8"
+    print(test)
+    html = requests.get(test).text
     soup = BeautifulSoup(html, 'html.parser')
 
     comic_title = ' '.join(soup.select('.comicinfo h2')[0].text.split())

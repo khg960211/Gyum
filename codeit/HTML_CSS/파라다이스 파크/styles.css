@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  min-width: 768px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.link-container {
+  text-align: center;
+  margin-top: 25px;
+}
+.link-container a:first-child {
+  margin-right: 13px;
+}
+/* side navbar */
+#side-navbar {
+  background-color: black;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+
+  text-align: center;
+}
+
+#logo {
+  width: 162px;
+  margin-top: 30px;
+}
+
+#side-navbar ul {
+  color: white;
+  list-style: none;
+  margin-left: 0;
+  padding-left: 22px;
+  text-align: left;
+  margin-top: 50px;
+  margin-bottom: 60px;
+}
+
+#side-navbar li:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+/* main */
+
+#main {
+  margin-left: 250px;
+}
+
+#main .hero-header {
+  text-align: center;
+  background-image: url("hero_header.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 750px;
+  line-height: 750px;
+}
+
+#main .info {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+}
+
+#main h1 {
+  margin: 0;
+  margin-bottom: 40px;
+  color: white;
+  font-size: 38px;
+}
+
+#main a {
+  padding: 10px 40px;
+  border: 2px solid white;
+  font-size: 18px;
+  color: white;
+  text-decoration: none;
+}

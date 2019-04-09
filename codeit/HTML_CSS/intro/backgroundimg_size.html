@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>background-size</title>
+  <meta charset="utf-8">
+  <Style>
+    body {
+      background-color: gray;
+    }
+
+    div {
+      width: 300px;
+      height: 230px;
+      border: 2px solid white;
+      background-image: url("https://i.imgur.com/WxH5bez.png");
+      margin: 30px;
+      background-repeat: no-repeat;
+    }
+
+    #div1 {
+      /* 원래 이미지 사이즈대로 출력 */
+      background-size: auto;
+    }
+
+    #div2 {
+      /* 화면을 꽉 채우면서, 사진 비율을 유지 */
+      background-size: cover;
+    }
+
+    #div3 {
+      /* 가로, 세로 중 먼저 채워지는 쪽에 맞추어서 출력 */
+      background-size: contain;
+    }
+
+    #div4 {
+      /* 픽셀값 지정 (가로: 150px, 세로: 10px로 설정) */
+      background-size: 150px 10px;
+    }
+
+    #div5 {
+      /* 픽셀값 지정 (가로: 200px, 세로: 200px로 설정) */
+      background-repeat: 200px 200px;
+    }
+
+    #div6 {
+      /* 퍼센트값 지정 (가로: 부모 요소 width의 50%, 세로: 부모 요소 height의 90%로 설정) */
+      background-size: 50% 50%;
+
+    }
+
+    #div7 {
+      /* 퍼센트값 지정 (가로: 부모 요소 width의 30%, 세로: 부모 요소 height의 100%로 설정) */
+      background-size: 30% 100%;
+    }
+  </style>
+</head>
+<body>
+
+    <div id="div1">
+    </div>
+
+    <div id="div2">
+    </div>
+
+    <div id="div3">
+    </div>
+
+    <div id="div4">
+    </div>
+
+    <div id="div5">
+    </div>
+
+    <div id="div6">
+    </div>
+
+    <div id="div7">
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>background</title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: gray;
+    }
+
+    div {
+      width: 300px;
+      height: 230px;
+      border: 2px solid white;
+      background-image: url("https://i.imgur.com/WxH5bez.png");
+      margin: 30px;
+    }
+
+    #div1 {
+      /* 반복하지 않음 */
+      background-repeat: no-repeat;
+    }
+
+    #div2 {
+      /* 가로 방향으로만 반복 */
+      background-repeat: repeat-x;
+    }
+
+    #div3 {
+      /* 세로 방향으로만 반복 */
+      background-repeat: repeat-y;
+    }
+
+    #div4 {
+      /* 가로와 세로 모두 반복 */
+      background-repeat: repeat;
+    }
+
+    #div5 {
+      /* 반복할 수 있는 만큼 반복한 뒤, 남는 공간은 이미지 간의 여백으로 배분 */
+      background-repeat: space;
+    }
+
+    #div6 {
+      /* 반복할 수 있는 만큼 반복한 뒤, 남는 공간은 이미지 확대를 통해 배분 */
+      background-repeat: round;
+    }
+  </style>
+</head>
+<body>
+
+    <div id="div1">
+    </div>
+
+    <div id="div2">
+    </div>
+
+    <div id="div3">
+    </div>
+
+    <div id="div4">
+    </div>
+
+    <div id="div5">
+    </div>
+
+    <div id="div6">
+    </div>
+
+</body>
+</html>

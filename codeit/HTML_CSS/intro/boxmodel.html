@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Box Model</title>
+    <meta charset="utf-8">
+    <Style>
+      h1 {
+        border: 5px solid red;
+        width: 500px;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50px;
+        padding-left: 50px;
+        background-color: blue;
+        box-shadow: 10px 10px 50px 40px green; /* 위치 위치 흐림정도 그림자크기 색깔 */
+      }
+      .p1 {
+        border: 5px solid red;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-left: 50px;
+        padding: 50px 65px 20px 80px; /* 시계방향으로 상우하좌, 값 하나만 쓰면 네방향 동일하게 적용 */
+      }
+      .p2 {
+        border: 5px solid red;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      .p3 {
+        border: 5px solid red;
+        max-height: 200px;
+        overflow: scroll; /* hidden, auto, visible */
+      }
+      .p4 {
+        /* border: 2px dotted #4d9fff; /* dashed, solid */
+        /* border-style: dotted;
+        border-color: #4d9fff;
+        border-width: 5px; */
+        /* border: none; */
+        border-top: 3px dotted #4d9fff;
+        border-bottom: 2px dashed red;
+        border-left: 5px solid green;
+      }
+      h3 {
+        width: 300px;
+        height: 200px;
+        padding: 35px;
+        border: 5px solid red;
+
+      }
+      * { /* 모든 요소에 적용 */
+        box-sizing: border-box; /* 테두리까지의 길이가 width, height에 맞춰짐 */
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>Life is Beautiful</h1>
+
+    <p class="p1">fhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfd</p>
+
+    <p class="p2">fhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfd</p>
+
+    <p class="p3">fhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdffhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdd</p>
+    <p class="p4">fhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfd</p>
+
+    <h3> Life is Beautiful</h3>
+    <p class="p5">fhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdffhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfhfjdklsahfjdklsahfdjklsafhdjkslafhdjsklafhsdjklafhasdjkl
+    fjdsl;ajfkdlsa;jfkdls;afjdkls;afjdksla;fjdkls;afjkdlsa;fjsdkla;
+    asdfasdfdsfdsfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdd</p>
+  </body>
+</html>

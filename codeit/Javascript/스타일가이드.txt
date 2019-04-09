@@ -1,0 +1,6 @@
+구글
+https://google.github.io/styleguide/jsguide.html
+에어비엔비
+https://github.com/tipjs/javascript-style-guide
+인기있는 스타일 가이드
+https://github.com/rwaldron/idiomatic.js/tree/master/translations/ko_KR

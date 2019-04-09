@@ -1,0 +1,5 @@
+Easing functions
+https://easings.net/ko#
+
+jquery UI
+https://code.jquery.com/ui/

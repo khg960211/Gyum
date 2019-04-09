@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="top">
+      Fade Away...
+    </div>
+
+    <button class="go-to-top">Go To Top</button>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      $(window).on('scroll', function() {
+        console.log($(window).scrollTop());
+      })
+    </script>
+  </body>
+</html>

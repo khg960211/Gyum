@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vertical Align</title>
+  <meta charset="utf-8">
+  <style>
+    .container {
+      background-color: orange;
+    }
+
+    .alex {
+      font-size: 90px;
+      background-color: pink;
+    }
+
+    .ben {
+      font-size: 30px;
+      background-color: lime;
+      /* Vertical-align: top; */ /* 기본적으로 vertical-align의 값은 baseline으로 되어있음 */
+      vertical-align: middle;
+    }
+
+    .chris {
+      font-size: 60px;
+      background-color: yellow;
+    }
+
+    /* baseline은 vertical-align의 조건들을 충족시키면서 줄의 높이를 최소화시키는 곳에 위치한다. */
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    x
+    <span class="alex">alex</span>
+    <span class="ben">ben</<span>
+    <span class="chris">chris</span>
+  </div>
+</body>
+</html>

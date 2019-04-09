@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  /* .div1의 자식인 <p> 태그 중 3번째 */
+  .div1 p:nth-child(3) {
+    color: blue;
+  }
+
+  /* .div1의 자식인 <p> 태그 중 첫 번째 */
+  .div1 p:first-child {
+    color: red;
+  }
+
+  /* .div1의 자식인 <p> 태그 중 마지막 */
+  .div1 p:last-child {
+    color: green;
+  }
+
+  /* .div1의 자식 중 마지막 자식이 아닌 <p> 태그 */
+  .div1 p:not(:last-child) {
+    font-size: 150%;
+  }
+
+  /* .div1의 자식 중 첫 번째 자식이 아닌 <p> 태그 */
+  .div1 p:not(:first-child) {
+    text-decoration: line-through;
+  }
+</style>
+</head>
+<body>
+<div class="div1">
+  <p>Paragraph 1</p>
+  <p>Paragraph 2</p>
+  <p>Paragraph 3</p>
+  <p>Paragraph 4</p>
+  <p>Paragraph 5</p>
+  <p>Paragraph 6</p>
+</div>
+</body>
+</html>

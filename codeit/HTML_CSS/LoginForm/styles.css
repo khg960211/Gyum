@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #1BBC9B;
+}
+
+.login-form {
+  background-color: #EEEFF1;
+  width: 300px;
+  margin: auto;
+  margin-top: 15%;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.text-field {
+  width: 260px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.submit-btn {
+  width: 260px;
+  text-align: center;
+  color: white;
+  background-color: #1BBC9B;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+/* 마우스를 버튼 위에 올릴 경우 그림자가 생기게 한다. */
+.submit-btn:hover {
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+}
+
+.links {
+  text-align: center;
+}
+
+.links a {
+  font-size: 12px;
+  color: #9B9B9B;
+}

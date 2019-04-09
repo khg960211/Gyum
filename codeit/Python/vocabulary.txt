@@ -1,0 +1,8 @@
+apple: 사과
+car: 자동차
+bicycle: 자전거
+wallet: 지갑
+church: 교회
+temple: 절
+soap: 비누
+cat: 고양이

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>positioning</title>
+  <meta charset="utf-8">
+  <style>
+    .red {
+      background-color: red;
+      width: 500px;
+      height: 500px;
+      position: relative;
+    }
+
+    .green {
+      background-color: green;
+      width: 300px;
+      height: 300px;
+      /* position: relative;
+      top: 40px;
+      left: 90px; */
+    }
+
+    .blue {
+      background-color: blue;
+      width: 100px;
+      height: 100px;
+      position: absolute; /* 가장 가까운 포지셔닝이 된 조상 요소가 기준이 된다. */
+      bottom: 40px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="red">
+    <div class="green">
+      <div class="blue">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

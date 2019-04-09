@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+}
+
+ul {
+  float: right;
+  list-style: none;
+  padding: 0;
+  height: 60px;
+  line-height: 60px;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+li {
+  height: 60px;
+  float: right;
+  display: inline-block;
+  padding: 0 10px;
+}
+li:hover {
+  background-color: #eeeeee;
+}
+a {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  vertical-align: middle;
+}
+
+
+#navbar {
+  padding: 0 20px;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 1px 0 0 rgba(0,0,0,0.50);
+  height: 60px;
+}
+
+#logo {
+  float: left;
+
+  line-height: 60px;
+}
+img {
+  vertical-align: middle;
+}
+
+.hero-header {
+  background-image: url("hero_image.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 670px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  line-height: 670px;
+}
+
+.hero-header .info {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal; /* hero-header{}에서 line-height을 670px로 설정해서 그 아들인 info에도 상속이 되어 이상하게 나오게 된다. 그것을 막기 위해 이곳에 normal로 설정한다.*/
+}
+
+.hero-header .info h1 {
+  font-size: 36px;
+  margin: 0;
+  margin-bottom: 13px;
+  color: white;
+  font-weight: 400;
+}
+
+.hero-header .info h2 {
+  font-size: 16px;
+  margin: 0;
+  margin-bottom: 60px;
+  color: white;
+  font-weight: 400;
+}
+
+.hero-header .info a {
+  font-size: 14px;
+  background-color: white;
+  color: #464273;
+  padding: 10px 40px;
+  text-decoration: none;
+  border-radius: 5px;
+}
