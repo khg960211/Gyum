@@ -7,7 +7,7 @@ def power(x, y):
         return x * y
 
     result = power(x, y // 2)
-    
+
     if y % 2 == 0:
         return result * result
     else:
