@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def max_crossing_sum(profits, start, end):
     mid = (start + end) // 2      # 중간 인덱스
 
