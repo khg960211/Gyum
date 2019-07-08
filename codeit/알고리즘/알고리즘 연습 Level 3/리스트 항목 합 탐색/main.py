@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Brute Force 방법
 # 인풋 리스트의 길이가 n이라고 할 때 시간 복잡도는 O(n^2)
 def sum_in_list(search_sum, sorted_list):

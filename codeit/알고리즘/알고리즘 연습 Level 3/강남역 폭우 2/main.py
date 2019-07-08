@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def trapping_rain(buildings):
     total_height = 0 # 총 갇히는 비의 양을 담을 변수
     n = len(buildings)

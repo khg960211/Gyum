@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 def sum_in_list(search_sum, sorted_list):
     low = 0
     high = len(sorted_list) - 1
