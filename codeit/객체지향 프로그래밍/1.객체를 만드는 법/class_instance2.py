@@ -2,22 +2,19 @@
 class User:
     # initialize 메소드를 여기 쓰세요
     # def initialize...
-    def initialize(self, name, email, password):
+    def __init__(self, name, email, password): #인스턴스가 생성될 때 자동으로 호출됨
         self.name = name
         self.email = email
         self.password = password
 
-user1 = User()
-user1.initialize("Young", "young@codeit.kr", "123456")
+user1 = User("Young", "young@codeit.kr", "123456")
+# user1.initialize("Young", "young@codeit.kr", "123456")
 
-user2 = User()
-user2.initialize("Yoonsoo", "yoonsoo@codeit.kr", "abcdef")
+user2 = User("Yoonsoo", "yoonsoo@codeit.kr", "abcdef")
 
-user3 = User()
-User.initialize(user3, "Taeho", "taeho@codeit.kr", "123abc")
+user3 = User("Taeho", "taeho@codeit.kr", "123abc")
 
-user4 = User()
-User.initialize(user4, "Lisa", "lisa@codeit.kr", "abc123")
+user4 = User("Lisa", "lisa@codeit.kr", "abc123")
 
 
 
