@@ -10,6 +10,8 @@ import zlib
 import k2rc4
 import k2rsa
 import k2timelib
+import marshal
+import imp
 
 #-------------------------------------------------------------------------------
 # make(src_fname)
@@ -299,3 +301,21 @@ class KMD(KMDConstants):
     def __get_md5(self):
         e_md5 = self.__kmd_date[self.KMD_MD5_OFFSET:]
         return k2rsa.crypt(e_md5, self.__rsa_pu)
+
+#-------------------------------------------------------------------------------
+# load(mod_name, buf)
+# 주어진 모듈 이름으로 파이썬 코드를 메모리에 로딩한다.
+# 입력값 : mod_name - 모듈 이름
+#         buf - 파이썬 코드 (pyc 시그니처 포함)
+# 리턴값 : 로딩된 모듈 Object
+#-------------------------------------------------------------------------------
+def load(mod_name, buf):
+    if buf[:4] == '03F30D0A'.decode('hex'): # puc 시그니처가 존재하는가?
+        code = marshal.loads(buf[8:]) # pyc에서 파이썬 코드를 로딩한다.
+        module = imp.new_module(mod_name) # 새로운 모듈 생성한다
+        exec (code, module.__dict__) # pyc 파이썬 코드와 모듈을 연결한다.
+        sys.modules[mod_name] = module # 전역에서 사용 가능하게 등록한다.
+
+        return module
+    else:
+        return None
