@@ -1,5 +1,14 @@
 # -*- coding: utf-8 -*-
 # k2rsa.py를 이용하여 key.pkr(공개키), key.skr(개인키) 파일을 생성한다.
+import os
+import sys
+
+s = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+) + os.sep + 'Engine' + os.sep + 'kavcore'
+sys.path.append(s)
 
 import sys
 import k2rsa
