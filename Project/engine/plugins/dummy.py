@@ -91,8 +91,9 @@ class KavMain:
         info = dict() # 사전형 변수 선언
 
         info['author'] = 'Kei Choi' # 제작자
-        info['version'] = '1.0' # 버전
+        info['version'] = '1.1' # 버전
         info['title'] = 'Dummy Scan Engine' # 엔진 설명
         info['kmd_name'] = 'dummy' # 엔진 파일 이름
+        info['sig_num'] = 1 # 진단 / 치료 가능한 악성코드 수
 
         return info

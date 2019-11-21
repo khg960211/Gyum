@@ -237,6 +237,10 @@ def main():
     msg = '\rLast updated %s UTC\n\n' % c.ctime()
     cprint(msg, FOREGROUND_GREY)
 
+    # 진단 / 치료 가능한 악성코드 수 출력
+    msg = 'Signature number : %d\n\n' % kav.get_signum()
+    cprint(msg, FOREGROUND_GREY)
+
     if options.opt_vlist is True: # 악성코드 목록 출력?
         kav.listvirus(listvirus_callback)
     else:

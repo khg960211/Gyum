@@ -360,3 +360,23 @@ class EngineInstance:
     #---------------------------------------------------------------------------
     def get_version(self):
         return self.max_datetime
+
+    #---------------------------------------------------------------------------
+    # get_signum(self)
+    # 백신 엔진이 진단 / 치료 가능한 악성코드 수를 얻는다.
+    # 리턴값 : 진단 / 치료 가능한 악성코드 수
+    #---------------------------------------------------------------------------
+    def get_signum(self):
+        signum = 0 # 진단 / 치료 가능한 악성코드 수
+
+        for inst in self.kavmain_inst:
+            try:
+                ret = inst.getinfo()
+
+                # 플러그인 엔진 정보에 진단 / 치료 가능 악성코드 수 누적
+                if 'sig_num' in ret:
+                    signum += ret['sig_num']
+            except AttributeError:
+                continue
+
+        return signum
