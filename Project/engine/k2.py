@@ -6,6 +6,8 @@ from ctypes import windll, Structure, c_short, c_ushort, byref
 from optparse import OptionParser
 sys.path.insert(0, 'D:\\Gyum\Project\engine\kavcore')
 import k2engine
+import py_compile
+import shutil
 
 #-------------------------------------------------------------------------------
 # 주요 상수
@@ -332,7 +334,7 @@ def main():
             # 악성코드 검사 결과 출력
             ret = kav.get_result()
             print_result(ret)
-            
+
     kav.uninit()
 
 if __name__ == '__main__':
