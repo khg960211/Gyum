@@ -5,6 +5,7 @@ import StringIO
 import datetime
 import types
 import mmap
+import glob
 
 import k2kmdfile
 import k2rsa
@@ -285,14 +286,14 @@ class EngineInstance:
         return vlist
 
     #---------------------------------------------------------------------------
-    # scan(self, filename)
+    # __scan_file(self, filename)
     # 플러그인 엔진에게 악성코드 검사를 요청한다.
     # 입력값 : filename - 악성코드 검사 대상 파일 이름
     # 리턴값 : (악성코드 발견 유무, 악성코드 이름, 악성코드 ID, 플러그인 엔진 ID)
     #---------------------------------------------------------------------------
-    def scan(self, filename):
+    def __scan_file(self, filename):
         if self.debug:
-            print '[*] KavMain.scan() : '
+            print '[*] KavMain.__scan_file() : '
 
         try:
             ret = False
@@ -329,6 +330,84 @@ class EngineInstance:
             pass
 
         return False, '', -1, -1
+
+    #---------------------------------------------------------------------------
+    # scan(self, filename)
+    # 플러그인 엔진에게 악성코드 검사를 요청한다.
+    # 입력값 : filename - 악성코드 검사 대상 파일 또는 폴더 이름
+    #       : callback - 검사 시 출력 화면 관련 콜백 함수
+    # 리턴값 : 0 - 성공
+    #           1 - Ctrl + C를 이용해서 악성코드 검사 강제 종료
+    #           -1 - 콜백 함수가 너무 많음
+    #---------------------------------------------------------------------------
+    def scan(self, filename, *callback):
+        cb_fn = None # 콜백 함수
+
+        # 악성코드 검사 결과
+        ret_value = {
+        'filename': '', # 파일 이름
+        'result': False, # 악성코드 발견 여부
+        'virus_name': '', # 발견된 악성코드 이름
+        'virus_id': -1, # 악성코드 ID
+        'engine_id': -1 # 악성코드를 발견한 플러그인 엔진 ID
+        }
+
+        # 가변인자 확인
+        argc = len(callback)
+
+        if argc == 1: # callback 함수가 존재하는지 체크
+            cb_fn = callback[0]
+        elif argc > 1: # 인자가 너무 많으면 에러
+            return -1
+
+        # 1. 검사 대상 리스트에 파일을 등록
+        file_scan_list = [filename]
+
+        while len(file_scan_list):
+            try:
+                real_name = file_scan_list.pop(0) # 검사 대상 파일 하나를 가짐
+
+                # file_scan_list에서 추출한 악성코드 검사 대상이 폴더인지 확인한다.
+                # 폴더면 내부 파일 목록만 검사 대상 리스트에 등록
+                if os.path.isdir(real_name):
+                    # 폴더 등을 처리할 때를 위해 뒤에 붙는 os.sep는 우선 제거
+                    if real_name[-1] == os.sep:
+                        real_name = real_name[:-1]
+
+                    # 콜백 호출 또는 검사 리턴값 생성
+                    ret_value['result'] = False # 폴더이므로 악성코드 없음
+                    ret_value['filename'] = real_name # 검사 파일 이름
+
+                    if self.options['opt_list']:
+                        # 옵션 내용 중 모든 목록 출력인가?
+                        if isinstance(cb_fn, types.FunctionType):
+                            # 콜백 함수가 존재하는가?
+                            cb_fn(ret_value) # 콜백 함수 호출
+                    # 폴더 안의 파일들을 검사 대상 리스트에 추가
+                    flist = glob.glob(real_name + os.sep + '*')
+                    file_scan_list = flist + file_scan_list
+                elif os.path.isfile(real_name): # 검사 대상이 파일인가?
+                    # 파일로 악성코드 검사
+                    ret, vname, mid, eid = self.__scan_file(real_name)
+
+                    # 콜백 호출 또는 검사 리턴값 생성
+                    ret_value['result'] = ret # 악성코드 발견 여부
+                    ret_value['engine_id'] = eid # 엔진 ID
+                    ret_value['virus_name'] = vname # 악성코드 이름
+                    ret_value['virus_id'] = mid # 악성코드 ID
+                    ret_value['filename'] = real_name # 검사 파일 이름
+
+                    if self.options['opt_list']: # 모든 리스트 출력인가?
+                        if isinstance(cb_fn, types.FunctionType):
+                            cb_fn(ret_value)
+                    else: # 아니라면 악성코드인 것만 출력
+                        if ret_value['result']:
+                            if isinstance(cb_fn, types.FunctionType):
+                                cb_fn(ret_value)
+            except KeyboardInterrupt:
+                return 1 # 키보드 종료
+
+        return 0
 
     #---------------------------------------------------------------------------
     # disinfect(self, filename, malware_id, engine_id)
