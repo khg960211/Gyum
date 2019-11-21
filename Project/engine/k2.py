@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+import glob
 from ctypes import windll, Structure, c_short, c_ushort, byref
 from optparse import OptionParser
 sys.path.insert(0, 'D:\\Gyum\Project\engine\kavcore')
@@ -189,6 +190,58 @@ def listvirus_callback(plugin_name, vnames):
         print '%-50s [%s.kmd]' % (vname, plugin_name)
 
 #-------------------------------------------------------------------------------
+# 악성코드 결과를 한 줄에 출력하기 위한 함수
+#-------------------------------------------------------------------------------
+def convert_display_filename(real_filename):
+    # 출력용 이름
+    fsencoding = sys.getfilesystemencoding() or sys.getdefaultencoding()
+    display_filename = unicode(real_filename, fsencoding).encode(sys.stdout.encoding, 'replace')
+    return display_filename
+
+def display_line(filename, message, message_color):
+    filename += ' '
+    filename = convert_display_filename(filename)
+    len_fname = len(filename)
+    len_msg = len(message)
+
+    if len_fname + 1 + len_msg < 79:
+        fname = '%s' % filename
+    else:
+        able_size = 79 - len_msg
+        able_size -= 5 # ...
+        min_size = able_size / 2
+        if able_size % 2 == 0:
+            fname1 = filename[:min_size-1]
+        else:
+            fname1 = filename[:min_size]
+        fname2 = filename[len_fname - min_size:]
+
+        fname = '%s ... %s' % (fname1, fname2)
+
+    cprint(fname + ' ', FOREGROUND_GREY)
+    cprint(message + '\n', message_color)
+
+#-------------------------------------------------------------------------------
+# scan의 콜백 함수
+#-------------------------------------------------------------------------------
+def scan_callback(ret_value):
+    real_name = ret_value['filename']
+
+    disp_name = '%s' % real_name
+
+    if ret_value['result']:
+        state = 'infected'
+
+        vname = ret_value['virus_name']
+        message = '%s : %s' % (state, vname)
+        message_color = FOREGROUND_RED | FOREGROUND_INTENSITY
+    else:
+        message = 'ok'
+        message_color = FOREGROUND_GREY | FOREGROUND_INTENSITY
+
+    display_line(disp_name, message, message_color)
+
+#-------------------------------------------------------------------------------
 # main()
 #-------------------------------------------------------------------------------
 def main():
@@ -252,7 +305,7 @@ def main():
                 scan_path = os.path.abspath(scan_path)
 
                 if os.path.exists(scan_path): # 폴더 혹은 파일이 존재하는가?
-                    print scan_path
+                    kav.scan(scan_path, scan_callback)
                 else:
                     print_error('Invalid path: \'%s\'' % scan_path)
     kav.uninit()
