@@ -242,6 +242,24 @@ def scan_callback(ret_value):
     display_line(disp_name, message, message_color)
 
 #-------------------------------------------------------------------------------
+# print_result(result)
+# 악성코드 검사 결과를 출력한다.
+# 입력값 : result - 악성코드 검사 결과
+#-------------------------------------------------------------------------------
+def print_result(result):
+    print
+    print
+
+    cprint('Results:\n', FOREGROUND_GREY | FOREGROUND_INTENSITY)
+    cprint('Folders           :%d\n' % result['Folders'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
+    cprint('Files             :%d\n' % result['Files'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
+    cprint('Infected_files    :%d\n' % result['Infected_files'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
+    cprint('Identified_viruses:%d\n' % result['Identified_viruses'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
+    cprint('I/O errors        :%d\n' % result['IO_errors'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
+
+    print
+
+#-------------------------------------------------------------------------------
 # main()
 #-------------------------------------------------------------------------------
 def main():
@@ -300,6 +318,8 @@ def main():
         kav.listvirus(listvirus_callback)
     else:
         if args:
+            kav.set_result() # 악성코드 검사 결과를 초기화
+
             # 검사용 path (다중 경로 지원)
             for scan_path in args: # 옵션을 제외한 첫 번째가 검사 대상
                 scan_path = os.path.abspath(scan_path)
@@ -308,6 +328,11 @@ def main():
                     kav.scan(scan_path, scan_callback)
                 else:
                     print_error('Invalid path: \'%s\'' % scan_path)
+
+            # 악성코드 검사 결과 출력
+            ret = kav.get_result()
+            print_result(ret)
+            
     kav.uninit()
 
 if __name__ == '__main__':

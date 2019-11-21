@@ -141,6 +141,7 @@ class EngineInstance:
     #---------------------------------------------------------------------------
     def __init__(self, plugins_path, max_datetime, debug=False):
         self.debug = debug # 디버그 여부
+
         self.plugins_path = plugins_path # 플러그인 경로
         self.max_datetime = max_datetime # 플러그인 엔진의 가장 최신 시간 값
 
@@ -148,6 +149,9 @@ class EngineInstance:
         self.set_options() # 기본 옵션을 설정한다.
 
         self.kavmain_inst = [] # 모든 플러그인의 KavMain 인스턴스
+
+        self.result = {}
+        self.identified_virus = set() # 유니크한 악성코드 개수를 구하기 위해 사용
 
     #---------------------------------------------------------------------------
     # create(self, kmd_modules)
@@ -327,7 +331,7 @@ class EngineInstance:
                 fp.close()
             return ret, vname, mid, eid
         except IOError:
-            pass
+            self.result['IO_errors'] += 1 # 파일 I/O 오류 발생 수
 
         return False, '', -1, -1
 
@@ -378,6 +382,8 @@ class EngineInstance:
                     ret_value['result'] = False # 폴더이므로 악성코드 없음
                     ret_value['filename'] = real_name # 검사 파일 이름
 
+                    self.result['Folders'] += 1 # 폴더 개수 카운트
+
                     if self.options['opt_list']:
                         # 옵션 내용 중 모든 목록 출력인가?
                         if isinstance(cb_fn, types.FunctionType):
@@ -389,6 +395,12 @@ class EngineInstance:
                 elif os.path.isfile(real_name): # 검사 대상이 파일인가?
                     # 파일로 악성코드 검사
                     ret, vname, mid, eid = self.__scan_file(real_name)
+
+                    if ret: # 악성코드 진단 개수 카운트
+                        self.result['Infected_files'] += 1
+                        self.identified_virus.update([vname])
+
+                    self.result['Files'] += 1 # 파일 개수 카운트
 
                     # 콜백 호출 또는 검사 리턴값 생성
                     ret_value['result'] = ret # 악성코드 발견 여부
@@ -473,3 +485,24 @@ class EngineInstance:
         else:
             self.options['opt_list'] = False
         return True
+
+    #---------------------------------------------------------------------------
+    # set_result(self)
+    # 백신 엔진의 악성코드 검사 결과를 초기화한다.
+    #---------------------------------------------------------------------------
+    def set_result(self):
+        self.result['Folders'] = 0 # 폴더 수
+        self.result['Files'] = 0 # 파일 수
+        self.result['Infected_files'] = 0 # 발견된 전체 악성코드 수
+        self.result['Identified_viruses'] = 0 # 발견된 유니크한 악성코드 수
+        self.result['IO_errors'] = 0 # 파일 I/O 오류 발생 수
+
+    #---------------------------------------------------------------------------
+    # get_result(self)
+    # 백신 엔진의 악성코드 검사 결과를 얻는다.
+    # 리턴값 : 악성코드 검사 결과
+    #---------------------------------------------------------------------------
+    def get_result(self):
+        # 지금까지 발견한 유니크한 악성코드의 수를 카운트 한다.
+        self.result['Identified_viruses'] = len(self.identified_virus)
+        return self.result
