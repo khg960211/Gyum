@@ -162,9 +162,9 @@ class EngineInstance:
         if len(self.kavmain_inst): # KavMain 인스턴스가 하나라도 있으면 성공
             if self.debug:
                 print '[*] Count of KavMain : %d' % (len(self.kavmain_inst))
-                return True
-            else:
-                return False
+            return True
+        else:
+            return False
 
     #---------------------------------------------------------------------------
     # init(self)
@@ -196,9 +196,9 @@ class EngineInstance:
         if len(self.kavmain_inst): # KavMain 인스턴스가 하나라도 있으면 성공
             if self.debug:
                 print '[*] Count of KavMain.init() : %d' % (len(self.kavmain_inst))
-                return True
-            else:
-                return False
+            return True
+        else:
+            return False
 
     #---------------------------------------------------------------------------
     # uninit(self)
@@ -352,3 +352,11 @@ class EngineInstance:
             pass
 
         return ret
+
+    #---------------------------------------------------------------------------
+    # get_version(self)
+    # 전체 플러그인 엔진의 최신 버전 정보를 출력한다.
+    # 리턴값 : 최신 버전 정보
+    #---------------------------------------------------------------------------
+    def get_version(self):
+        return self.max_datetime
