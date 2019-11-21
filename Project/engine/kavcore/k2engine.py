@@ -143,6 +143,9 @@ class EngineInstance:
         self.plugins_path = plugins_path # 플러그인 경로
         self.max_datetime = max_datetime # 플러그인 엔진의 가장 최신 시간 값
 
+        self.options = {} # 옵션
+        self.set_options() # 기본 옵션을 설정한다.
+
         self.kavmain_inst = [] # 모든 플러그인의 KavMain 인스턴스
 
     #---------------------------------------------------------------------------
@@ -380,3 +383,14 @@ class EngineInstance:
                 continue
 
         return signum
+
+    #---------------------------------------------------------------------------
+    # set_options(self, options)
+    # 옵션을 설정한다.
+    #---------------------------------------------------------------------------
+    def set_options(self, options=None):
+        if options:
+            self.options['opt_list'] = options.opt_list
+        else:
+            self.options['opt_list'] = False
+        return True

@@ -241,6 +241,8 @@ def main():
     msg = 'Signature number : %d\n\n' % kav.get_signum()
     cprint(msg, FOREGROUND_GREY)
 
+    kav.set_options(options) # 옵션을 설정
+
     if options.opt_vlist is True: # 악성코드 목록 출력?
         kav.listvirus(listvirus_callback)
     else:
