@@ -2,7 +2,7 @@
 # Author : Kei Choi (hanul93@gmail.com)
 
 import os
-import hashlib
+import cryptolib
 
 class KavMain:
     # ----------------------------------------------------------------------------
@@ -38,9 +38,8 @@ class KavMain:
             size = os.path.getsize(filename) # 검사 대상 파일 크기를 구한다.
             if size == 68: # EICAR Test 악성코드의 크기와 일치하는가?
                 # 크기가 일치한다면 MD5 해시 계산
-                m = hashlib.md5()
-                m.update(mm[:68])
-                fmd5 = m.hexdigest()
+                fmd5 = cryptolib.md5(mm[:68])
+
                 # 파일에서 얻은 해시값과 EICAR Test 악성코드의 해시 값이 일치하는가?
                 if fmd5 == '44d88612fea8a8f36de82e1278abb02f':
                     return True, 'EICAR-Test-File (not a virus)', 0
@@ -90,8 +89,8 @@ class KavMain:
         info = dict() # 사전형 변수 선언
 
         info['author'] = 'Kei Choi' # 제작자
-        info['version'] = '1.0' # 버전
-        info['title'] = 'Dummy Scan Engine' # 엔진 설명
-        info['kmd_name'] = 'dummy' # 엔진 파일 이름
+        info['version'] = '1.1' # 버전
+        info['title'] = 'EICAR SCAN Engine' # 엔진 설명
+        info['kmd_name'] = 'eicar' # 엔진 파일 이름
 
         return info

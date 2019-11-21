@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 class KavMain:
     # ----------------------------------------------------------------------------
     # init(self, plugins_path)
@@ -94,4 +95,4 @@ class KavMain:
         info['title'] = 'Dummy Scan Engine' # 엔진 설명
         info['kmd_name'] = 'dummy' # 엔진 파일 이름
 
-        return info 
+        return info
